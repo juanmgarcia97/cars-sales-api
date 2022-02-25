@@ -8,9 +8,9 @@ function routerApi(app) {
     const router = express.Router();
     app.use("/api", router);
     router.use("/cars", carRouter);
-    // router.use("/sellers", sellerRouter);
-    // router.use("/clients", clientRouter);
-    // router.use("/sales", saleRouter);
+    router.use("/sellers", sellerRouter);
+    router.use("/clients", clientRouter);
+    router.use("/sales", saleRouter);
 }
 
 module.exports = routerApi;
