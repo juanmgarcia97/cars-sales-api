@@ -14,3 +14,7 @@ en la terminal de preferencia, estando dentro de la carpeta del proyecto.
 
 `npm run dev` para correr la aplicación utilizando nodemon y `npm start` para correr la aplicación con node. Esta corre
 por el puerto 3000.
+
+## Pruebas
+
+Para probar los métodos de cada modelo de datos se realizó una colección de **_Postman_** que se puede descargar [aquí](https://www.getpostman.com/collections/08607960371c543e2d41)
