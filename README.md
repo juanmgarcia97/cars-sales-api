@@ -1,9 +1,16 @@
 # cars-sales-api
 
 Esta es una api para comercializar vehículos. Para esto se han creado diferentes modelos: *Car, Seller, Client, Sale*. 
-Además se han creados los métodos correspondientes en cada modelo: *create, read, update, delete*. Se ha utilizado MongoDB
+Además se han creados los métodos correspondientes en cada modelo: *create, read, update, delete*. Se ha utilizado **_MongoDB_**
 para almacenar los datos.
 
-# Ejecución
+## Configuración del ambiente
 
-`npm run dev` para correr la aplicación utilizando nodemon y `npm start` para correr la aplicación con node.
+Para poder ejecutar la API se debe tener instalado previamente **_Node.js_** y **_npm_**. Al clonar o descargar el 
+repositorio ([código aquí](https://github.com/juanmgarcia97/cars-sales-api.git)) se debe correr el comando `npm install`
+en la terminal de preferencia, estando dentro de la carpeta del proyecto.
+
+## Ejecución
+
+`npm run dev` para correr la aplicación utilizando nodemon y `npm start` para correr la aplicación con node. Esta corre
+por el puerto 3000.
