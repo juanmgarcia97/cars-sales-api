@@ -17,4 +17,5 @@ por el puerto 3000.
 
 ## Pruebas
 
-Para probar los métodos de cada modelo de datos se realizó una colección de **_Postman_** que se puede descargar [aquí](https://www.getpostman.com/collections/08607960371c543e2d41)
+Para probar los métodos de cada modelo de datos se realizó una colección de **_Postman_** que se puede descargar copiando el siguiente
+link https://www.getpostman.com/collections/08607960371c543e2d41 e importandolo directamente en **_Postman_**.
