@@ -14,11 +14,11 @@ exports.create = (req, res, next) => {
   Car.findOne({ model: req.body.model }, (err, c) => {
     if (err) throw Error();
     if (c) {
-      throw boom.conflict("The car " + req.body.model + " is already created");
+      return res.status(409).send("The car, " + req.body.brand + " " + req.body.model + ", is already created");
     } else {
       car.save((error) => {
         if (error) throw boom.badRequest("The car could not be created");
-        res.status(201).send("Car " + req.body.model + " was created");
+        res.status(201).send("Car, " + req.body.brand + " " + req.body.model + ", was created");
       });
     }
   });

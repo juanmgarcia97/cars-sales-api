@@ -4,15 +4,15 @@ const id = Joi.string().alphanum().min(10).max(24).not("-");
 const seller = Joi.string()
   .min(2)
   .max(30)
-  .pattern(/^[A-Za-z]+$/);
+  .pattern(/^[A-Za-z]\w+/);
 const client = Joi.string()
   .min(2)
   .max(30)
-  .pattern(/^[A-Za-z]+$/);
+  .pattern(/^[A-Za-z]\w+/);
 const car = Joi.string()
   .min(3)
   .max(15)
-  .pattern(/^[A-Za-z]+$/);
+  .pattern(/^[A-Za-z]\w+/);
 const date = Joi.date();
 
 const createSaleDTO = Joi.object({

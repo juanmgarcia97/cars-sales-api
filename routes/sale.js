@@ -9,7 +9,7 @@ const {
   getSaleDTO,
   getByClientSaleDTO,
   getBySellerSaleDTO,
-} = require("../dtos/saleDTO");
+} = require("../validators/saleValidator");
 
 router.get("/", (req, res, next) => {
   saleController.index(req, res, next);

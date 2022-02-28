@@ -15,12 +15,12 @@ exports.create = (req, res, next) => {
   Sale.findOne({ car: req.body.car }, (err, s) => {
     if (err) throw Error();
     if (s) {
-      throw boom.conflict("The car " + req.body.car + ", was already sold");
+      return res.status(409).send("The car, " + req.body.brand + " " + req.body.car + ", was already sold");
     } else {
       sale.date = new Date();
       sale.save((error) => {
         if (error) throw Error();
-        res.status(201).send("Car " + req.body.car + " was sold");
+        res.status(201).send("Car, " + req.body.brand + " " + req.body.car + ", was sold");
       });
     }
   });

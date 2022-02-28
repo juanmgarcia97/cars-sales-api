@@ -6,7 +6,7 @@ const {
   createSellerDTO,
   updateSellerDTO,
   getSellerDTO,
-} = require("../dtos/sellerDTO");
+} = require("../validators/sellerValidator");
 
 router.get("/", (req, res, next) => {
   sellerController.index(req, res, next);

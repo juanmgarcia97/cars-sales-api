@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const carController = require("../controllers/carController");
 const validatorHandler = require("../middlewares/validator-handler");
-const { createCarDTO, updateCarDTO, getCarDTO } = require("../dtos/carDTO");
+const { createCarDTO, updateCarDTO, getCarDTO } = require("../validators/carValidator");
 
 router.get("/", (req, res, next) => {
   carController.index(req, res, next);

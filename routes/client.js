@@ -6,7 +6,7 @@ const {
   createClientDTO,
   updateClientDTO,
   getClientDTO,
-} = require("../dtos/clientDTO");
+} = require("../validators/clientValidator");
 
 router.get("/", (req, res, next) => {
   clientController.index(req, res, next);
