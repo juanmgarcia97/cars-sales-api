@@ -1,9 +1,9 @@
 const Joi = require("joi");
 
 const id = Joi.string().uuid();
-const seller = Joi.string().uuid();
-const client = Joi.string().uuid();
-const car = Joi.string().uuid();
+const seller = Joi.string().pattern(/^[a-z0-9]+/);
+const client = Joi.string().pattern(/^[a-z0-9]+/);
+const car = Joi.string().pattern(/^[a-z0-9]+/);
 const date = Joi.date();
 
 const createSaleDTO = Joi.object({

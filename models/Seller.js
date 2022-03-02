@@ -7,6 +7,10 @@ const sellerSchema = new Schema({
   lastname: String,
   cc: String,
   cellphone: String,
+  sale: {
+    type: Schema.Types.ObjectId,
+    ref: 'Sale'
+  }
 });
 
 module.exports = mongoose.model("Seller", sellerSchema);

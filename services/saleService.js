@@ -10,34 +10,30 @@ exports.index = (req, res, next) => {
     if (!sales) res.status(400).send("Could not be get the sale's list");
     if (sales.length === 0) res.status(400).send("There's no sales available")
     res.status(200).send(sales);
-  });
+  }).populate('client').populate('seller').populate('car');
 };
 
 exports.create = (req, res, next) => {
   const sale = new Sale(req.body);
   Sale.findOne({ car: req.body.car, client: req.body.client, seller: req.body.seller }, async (err, s) => {
     if (err) res.status(400).send("Something happened, try again later");
-    const car = await Car.findOne({carId: req.body.car}, (err, car) => {
+    const car = await Car.findById(req.body.car, (err, car) => {
       if (err) res.status(400).send("Something happened, try again later");
       if (!car) res.status(404).send("Car does not exists")
-      const client = Client.findOne({clientId: req.body.client}, (err, client) => {
+      const client = Client.findById( req.body.client, (err, client) => {
         if (err) res.status(400).send("Something happened, try again later");
         if (!client) res.status(404).send("Client does not exists")
-        const seller = Seller.findOne({sellerId: req.body.seller}, (err, seller) => {
+        const seller = Seller.findById(req.body.seller, (err, seller) => {
           if (err) res.status(400).send("Something happened, try again later");
           if (!seller) res.status(404).send("Seller does not exists")
           if (s) {
-            return res.status(409).send("The car, " + req.body.car + ", was already sold");
+            res.status(409).send("The car, " + req.body.car + ", was already sold");
           } else if (car != null && client != null && seller != null) {
-            sale.saleId = v4()
-            sale.date = new Date();
-            sale.client = client
-            sale.seller = seller
-            sale.car = car
             sale.save((error) => {
               if (error) res.status(400).send("Something happened, try again later");
-              res.status(201).send("Car, " + req.body.car + ", was sold to client " + req.body.client);
             });
+
+              res.status(201).send("Car, " + req.body.car + ", was sold to client " + req.body.client);
           }
         })
       })

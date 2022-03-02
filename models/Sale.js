@@ -1,15 +1,24 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// const Seller = require('./Seller')
-// const Client = require('./Client')
-// const Car = require('./Car')
 
 const saleSchema = new Schema({
   saleId: String,
-  seller: String,
-  client: String,
-  car: String,
-  date: Date,
+  seller: [{
+    type: Schema.Types.ObjectId,
+    ref: "Seller",
+    required: true,
+  }],
+  client: {
+    type: Schema.Types.ObjectId,
+    ref: "Client",
+    required: true,
+  },
+  car: {
+    type: Schema.Types.ObjectId,
+    ref: "Car",
+    required: true,
+  },
+  date: { type: Date, default: new Date() },
 });
 
 module.exports = mongoose.model("Sale", saleSchema);
