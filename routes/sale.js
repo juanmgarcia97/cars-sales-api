@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Car = require("../models/Car");
-const saleController = require("../controllers/saleController");
+const saleController = require("../services/saleService");
 const validatorHandler = require("../middlewares/validator-handler");
 const {
   createSaleDTO,
@@ -10,6 +10,7 @@ const {
   getByClientSaleDTO,
   getBySellerSaleDTO,
 } = require("../validators/saleValidator");
+const boom = require("@hapi/boom");
 
 router.get("/", (req, res, next) => {
   saleController.index(req, res, next);
@@ -59,5 +60,9 @@ router.delete(
     saleController.delete(req, res, next);
   }
 );
+
+router.all("*", () => {
+    throw boom.badRequest("Page was not found")
+})
 
 module.exports = router;

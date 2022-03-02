@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const sellerController = require("../controllers/sellerController");
+const sellerController = require("../services/sellerService");
 const validatorHandler = require("../middlewares/validator-handler");
 const {
   createSellerDTO,
   updateSellerDTO,
   getSellerDTO,
 } = require("../validators/sellerValidator");
+const boom = require("@hapi/boom");
 
 router.get("/", (req, res, next) => {
   sellerController.index(req, res, next);
@@ -44,5 +45,9 @@ router.delete(
     sellerController.delete(req, res, next);
   }
 );
+
+router.all("*", () => {
+    throw boom.badRequest("Page was not found")
+})
 
 module.exports = router;

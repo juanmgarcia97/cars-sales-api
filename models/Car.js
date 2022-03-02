@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
-  model: { type: String, required: true, max: 30 },
-  brand: { type: String, required: true, max: 20 },
-  color: { type: String, required: true },
-  price: { type: Number, required: true },
+  carId: { type: String },
+  model: { type: String },
+  brand: { type: String },
+  plate: { type: String },
+  color: { type: String },
+  price: { type: Number },
 });
 
 // const model =

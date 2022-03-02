@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const clientController = require("../controllers/clientController");
+const clientController = require("../services/clientService");
 const validatorHandler = require("../middlewares/validator-handler");
 const {
   createClientDTO,
   updateClientDTO,
   getClientDTO,
 } = require("../validators/clientValidator");
+const boom = require("@hapi/boom");
 
 router.get("/", (req, res, next) => {
   clientController.index(req, res, next);
@@ -44,5 +45,9 @@ router.delete(
     clientController.delete(req, res, next);
   }
 );
+
+router.all("*", () => {
+    throw boom.badRequest("Page was not found")
+})
 
 module.exports = router;
